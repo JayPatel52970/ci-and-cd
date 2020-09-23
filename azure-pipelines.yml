@@ -25,7 +25,7 @@ stages:
             contents: '*.tgz' 
             targetFolder: $(Build.ArtifactStagingDirectory)/build
           displayName: 'Copy npm package'
-
+        - script: echo $(Build.ArtifactStagingDirectory) | echo hello 
         - task: CopyFiles@2
           inputs:
             sourceFolder: '$(Build.SourcesDirectory)'
