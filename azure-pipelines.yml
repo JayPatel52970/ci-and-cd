@@ -29,18 +29,18 @@ steps:
   inputs:
     sourceFolder: '$(Build.SourcesDirectory)'
     contents: '*.tgz' 
-    targetFolder: $(Build.ArtifactStagingDirectory)/npm
+    targetFolder: $(Build.ArtifactStagingDirectory)/build
   displayName: 'Copy npm package'
 
 - task: CopyFiles@2
   inputs:
     sourceFolder: '$(Build.SourcesDirectory)'
     contents: 'package.json' 
-    targetFolder: $(Build.ArtifactStagingDirectory)/npm
+    targetFolder: $(Build.ArtifactStagingDirectory)/build
   displayName: 'Copy package.json'
 
 - task: PublishBuildArtifacts@1
   inputs:
-    pathtoPublish: '$(Build.ArtifactStagingDirectory)/npm'
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)/build'
     artifactName: npm
   displayName: 'Publish npm artifact'
