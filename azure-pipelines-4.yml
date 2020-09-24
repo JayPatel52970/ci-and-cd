@@ -31,3 +31,10 @@ stages:
             replaceExistingArchive: true
         - upload: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
           artifact: drop
+        - task: CopyFiles@2
+          inputs:
+            SourceFolder: '$(System.DefaultWorkingDirectory)/dist'
+            Contents: '**'
+            TargetFolder: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId)'
+            CleanTargetFolder: true
+            OverWrite: true
